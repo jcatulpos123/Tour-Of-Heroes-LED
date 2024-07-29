@@ -1,0 +1,47 @@
+
+
+
+
+<h2>My Heroes</h2>
+<div class="action-container">
+  <div><input name="name" type="text" placeholder="Juan Dela Cruz" #name required/></div>
+  <div><input type="text" placeholder="Universe 7" #universe/></div>
+  <div><button type="button" (click)="add(name.value, universe.value); name.value='';universe.value='' " [disabled]="name.value">Add Hero</button></div>
+</div>
+
+
+<!--<button type="button" (click)="getHeroes()">Generate</button> -->
+<div class="hero-list">
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <div class="button-grid">
+        <div class="tooltip">
+          <button routerLink="/detail/{{hero.id}}" type="button">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+            <span class="tooltiptext">{{hero.universe}}</span>
+          </button>
+        </div>
+        <div>
+          <button class="delete-button" type="button" (click)="delete(hero)">x</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!--
+<div *ngIf="selectedHero">
+  <div *ngIf="selectedHero" class="hero-container">
+    <div class="hero-container">
+      <h2>{{selectedHero.name | uppercase}} Details</h2>
+      <div>id: {{selectedHero.id}}</div>
+      <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
